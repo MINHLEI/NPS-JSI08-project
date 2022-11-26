@@ -1,0 +1,16 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+select {
+    border: none;
+}
+.sort_element {
+    margin-left: 1200px;
+    border: 2px solid;
+    padding: 15px;
+    border-radius: 50px;
+}
+img {
+    height: 100px;
+    width: auto;
+}

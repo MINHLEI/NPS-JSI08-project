@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buoi2</title>
+</head>
+
+<body>
+    <script>
+        let target = {
+            a: 1,
+            b: 2
+        }
+        let source1 = {
+            c: 3,
+            d: 4
+        }
+        let source2 = {
+            a: 5,
+            c: 6
+        }
+
+        Object.assign(target, source1, source2); //Có thể để object rỗng thay target, source sẽ thay gán hết vào đó thành object mới
+
+
+
+
+        //Spread Syntax: 
+
+
+        // Tách nội dung ở bên trong của mảng ra
+
+        console.log(Math.max(1, 2, 3, 4));
+
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        console.log(Math.max(...arr))
+
+        //...arr = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+        function sum(a, b, c) {
+            return a + b + c;
+        }
+        console.log(sum(...arr)); //chỉ lấy 3 số đầu của mảng để thay vào hàm
+
+        // COPY VÀ GHÉP NỐI MẢNG
+
+
+        // const arr1 = [1, 2, 3];
+        // const arr2 = arr1;
+        // arr2 [0] = 5;
+        // console.log(arr1);
+        // console.log(arr2);
+        // Copy kiểu này khiến cho việc thay đổi arr2 cũng sẽ thay đổi arr1
+
+        const arr1 = [1, 2, 3];
+        const arr2 = [...arr1];
+        arr2[0] = 5
+        console.log(arr1);
+        console.log(arr2);
+        // Copy này chỉ clone chứ không liên kết arr1 với arr2
+
+        // Ghép nối
+        const arr3 = [...arr1, ...arr2];
+        console.log(arr3)
+
+
+        const obj1 = {
+            name: 'Nguyen Van A',
+            age: 20
+        }
+
+        const obj2 = {
+            address: 'HaNoi'
+        }
+
+        const obj3 = { ...obj1, ...obj2 }
+        console.log(obj3)
+
+
+        // Biến chuỗi thành mảng
+        const str = 'hello world'
+        // ...str = h, e, l, l, o,  , w, o, r, l, d
+        const chars = [...str]
+        console.log(chars)
+
+
+        // Array map và Array filter
+
+        // Các hàm Array được dùng cho các biến mảng
+        // Cú pháp: array.map() array.filter() array.reduce() array.forEach() ......
+
+        // Map: Dùng để duyệt qua từng phần tử trong mảng và thực hiện 1 hành động nào đó, và trả về mảng mới có số lượng phần tử giống hệt mảng gốc
+        // Cú pháp: array.map(fuction(item, index, array) {});
+        // .map nhận vào một hàm khác để làm tham số cho mình
+        // Dùng map phải return
+        const arr0ri = [1, 2, 3, 4, 5];
+        // item: phần tử hiện tại
+        // index: chỉ số của phần tử hiện tại
+        // array: mảng gốc
+
+
+        // const arrNew = arr0ri.map((item, index, array) => {
+        //     // return item * 2
+        //     return item * index
+        // });
+
+        const arrNew = arr0ri.map((item, index, array) => item * index);
+        // Cú pháp rút gọn cho cái trên
+        console.log(arrNew)
+
+        // Filter: Dùng để lọc ra các phần tử thỏa mãn điều kiện nào đó, và trả về mảng mới có số lượng phần tử nhỏ hơn hoặc bằng mảng gốc
+        // Từ mảng gốc lọc ra các phần tử lớn hơn 2 (Thỏa mãn một điều kiện do mình đặt ra nên sẽ cắt bớt một số phần tử không thỏa mãn)
+        // Cú pháp: array.filter(fuction(item, index, array) {})
+        // item: phần tử hiện tại
+        // index: chỉ số của phần tử hiện tại
+        // array: mảng gốc
+        // filter bắt buộc phải return để trả ra dữ liệu cho mảng mới
+        const arrFiltered = arr0ri.filter((item, index, array) => {
+        // return true thì nhận giá trị cho mảng mới còn false thì không
+            if (item > 2) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        console.log(arrFiltered)
+
+        // VD
+        const products = [
+            {
+                id: 1,
+                price: 12,
+                sale: 50,
+                color: "red",
+            },
+            {
+                id: 2,
+                price: 10,
+                sale: 0,
+                color: "blue"
+            },
+        ];
+
+        console.log(products);
+        const mappedProducts = products.map((item) => {
+            item.newPrice = `$${item.price*item.sale/100}`;
+
+            return item;
+        })
+        console.log (mappedProducts)
+
+        const redProducts = products.filter((item) => {
+            if (item. color == "red") {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        console.log (redProducts)
+
+
+
+
+    </script>
+</body>
+
+</html>
